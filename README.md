@@ -22,16 +22,33 @@ Runtime Requirements
 
 This AppImage is intentionally debloated and is approximately 3 MB in size.
 
-Instead of bundling large libraries, it uses the libraries already installed on your Linux system.
+Instead of bundling large multimedia libraries, it uses the libraries already installed on the host system.
 
-For proper operation, your system should provide:
+The following packages are required:
 
-FFmpeg libraries and codecs.
-GPU video drivers with VA-API and/or VDPAU support.
-Standard system libraries required by MPC-Qt.
+for Debian / Ubuntu / Linux Mint / Pop!_OS
+sudo apt install mpv ffmpeg
+for Arch Linux / EndeavourOS / Manjaro / CachyOS
+sudo pacman -S mpv ffmpeg
+for Fedora nobara
+sudo dnf install mpv ffmpeg
+for openSUSE
+sudo zypper install mpv ffmpeg
+for Alpine Linux
+sudo apk add mpv ffmpeg
+for Void Linux
+sudo xbps-install -S mpv ffmpeg
+for NixOS
+nix-env -iA nixpkgs.mpv nixpkgs.ffmpeg
 
-This AppImage is intended for Linux distributions where multimedia libraries are already installed.
+A working GPU driver with VA-API and/or VDPAU support is required for hardware video acceleration.
 
+Make sure your system has the appropriate video drivers installed for your GPU:
+
+Intel / AMD: VA-API support
+NVIDIA: VDPAU support or compatible VA-API translation layer
+
+This AppImage is designed for Linux distributions where multimedia libraries are already available in the system.
 Building
 
 After preparing a complete Mpc-qt.AppDir, the AppImage is created with:
