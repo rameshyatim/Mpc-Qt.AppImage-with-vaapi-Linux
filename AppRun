@@ -1,0 +1,26 @@
+#!/bin/sh
+HERE="$(dirname "$(readlink -f "$0")")"
+if [ -n "$APPIMAGE" ]; then
+    APPDIR_REAL="$(dirname "$APPIMAGE")"
+    APPNAME="$(basename "$APPIMAGE")"
+    export HOME="$APPDIR_REAL/${APPNAME}.home"
+else
+    export HOME="$HERE/../mpc-qt.AppImage.home"
+fi
+
+mkdir -p "$HOME"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+mkdir -p "$XDG_CONFIG_HOME/mpc-qt" "$XDG_CACHE_HOME" "$XDG_DATA_HOME"
+if [ ! -f "$XDG_CONFIG_HOME/mpc-qt/geometry_v2.json" ]; then
+    cp "$HERE/usr/share/config_base/geometry_v2.json" "$XDG_CONFIG_HOME/mpc-qt/geometry_v2.json"
+fi
+export PATH="$HERE/usr/bin:$PATH"
+export LD_LIBRARY_PATH="/usr/lib:/usr/lib/qt6:$LD_LIBRARY_PATH"
+export QT_PLUGIN_PATH="/usr/lib/qt6/plugins"
+export XDG_DATA_DIRS="/usr/share:$XDG_DATA_DIRS"
+export LIBVA_DRIVERS_PATH="/usr/lib/dri"
+export VDPAU_DRIVER_PATH="/usr/lib/vdpau"
+export MPV_HOME="$XDG_CONFIG_HOME/mpv"
+exec "$HERE/usr/bin/mpc-qt" "$@"
