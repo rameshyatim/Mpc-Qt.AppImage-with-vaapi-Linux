@@ -28,16 +28,22 @@ The following packages are required:
 
 for Debian / Ubuntu / Linux Mint / Pop!_OS
 sudo apt install mpv ffmpeg
+
 for Arch Linux / EndeavourOS / Manjaro / CachyOS
 sudo pacman -S mpv ffmpeg
+
 for Fedora nobara
 sudo dnf install mpv ffmpeg
+
 for openSUSE
 sudo zypper install mpv ffmpeg
+
 for Alpine Linux
 sudo apk add mpv ffmpeg
+
 for Void Linux
 sudo xbps-install -S mpv ffmpeg
+
 for NixOS
 nix-env -iA nixpkgs.mpv nixpkgs.ffmpeg
 
@@ -59,3 +65,11 @@ License
 Packaging files and custom scripts are provided as-is.
 
 MPC-Qt and its dependencies remain under their respective licenses.
+
+Design Goal
+
+This AppImage was created with a focus on low disk space consumption.
+
+Instead of including duplicated multimedia libraries inside the package, it uses the existing system libraries already installed on the host.
+
+This keeps the AppImage extremely small (approximately 3 MB) while still providing MPC-Qt with VA-API hardware video acceleration when the required system components are available.
