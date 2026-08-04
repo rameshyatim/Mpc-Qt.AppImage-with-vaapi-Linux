@@ -22,17 +22,6 @@ MPC-Qt running with hardware accelerated video playback.
 Intel GPU hardware acceleration verified with intel_gpu_top.
 </p>
 
-
-MPC-Qt AppImage with VA-API (Linux)
-
-<p align="center"> <img src="logo.svg" width="128"> </p>
-
-Portable MPC-Qt AppImage for Linux with support for system FFmpeg libraries and VA-API hardware video acceleration.
-
-<p align="center"> <img src="screenshot1.png" width="850"> </p>
-
-<p align="center"> <img src="screenshot2.png" width="850"> </p>
-
 About
 
 This repository contains the AppDir structure and custom packaging files used to build the MPC-Qt AppImage.
