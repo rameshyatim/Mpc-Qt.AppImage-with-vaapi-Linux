@@ -1,3 +1,28 @@
+<p align="center">
+<img src="images/logo.svg" width="180">
+</p>
+
+# MPC-Qt AppImage with VA-API (Linux)
+
+This repository contains a lightweight AppImage packaging of MPC-Qt with VA-API hardware video acceleration.
+
+<p align="center">
+<img src="images/screenshot1.png" width="850">
+</p>
+
+<p align="center">
+MPC-Qt running with hardware accelerated video playback.
+</p>
+
+<p align="center">
+<img src="images/screenshot2.png" width="850">
+</p>
+
+<p align="center">
+Intel GPU hardware acceleration verified with intel_gpu_top.
+</p>
+
+
 MPC-Qt AppImage with VA-API (Linux)
 
 <p align="center"> <img src="logo.svg" width="128"> </p>
