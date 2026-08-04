@@ -17,10 +17,10 @@
     },
     "MainWindow": {
         "geometry": {
-            "h": 580,
-            "w": 599,
-            "x": 2038,
-            "y": 210
+            "h": 1052,
+            "w": 1920,
+            "x": 1366,
+            "y": 28
         },
         "maximized": true,
         "state": {
@@ -66,13 +66,13 @@
     },
     "SettingsWindow": {
         "geometry": {
-            "h": 676,
+            "h": 688,
             "w": 1129,
             "x": 1754,
             "y": 266
         }
     },
     "mpvHost": {
-        "qtState": "AAAA/wAAAAD9AAAAAQAAAAEAAAEWAAAC0PwCAAAAAfsAAAAcAHAAbABhAHkAbABpAHMAdABXAGkAbgBkAG8AdwAAAAAAAAAC0AAAAKAA////AAAHgAAAA8EAAAAEAAAABAAAAAgAAAAI/AAAAAA="
+        "qtState": "AAAA/wAAAAD9AAAAAQAAAAEAAAEWAAAC0PwCAAAAAfsAAAAcAHAAbABhAHkAbABpAHMAdABXAGkAbgBkAG8AdwgAAAAAAAAC0AAAAL0A////AAAHgAAAA7AAAAAEAAAABAAAAAgAAAAI/AAAAAA="
     }
 }

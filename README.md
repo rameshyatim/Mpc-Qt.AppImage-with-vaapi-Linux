@@ -1,75 +1,87 @@
 MPC-Qt AppImage with VA-API (Linux)
 
-This repository contains the AppDir structure and custom files used to build my Linux AppImage of MPC-Qt with VA-API hardware video acceleration.
+<p align="center"> <img src="logo.svg" width="128"> </p>
+
+Portable MPC-Qt AppImage for Linux with support for system FFmpeg libraries and VA-API hardware video acceleration.
+
+<p align="center"> <img src="screenshot1.png" width="850"> </p>
+
+<p align="center"> <img src="screenshot2.png" width="850"> </p>
 
 About
 
-This project is not the complete source code of MPC-Qt.
+This repository contains the AppDir structure and custom packaging files used to build the MPC-Qt AppImage.
 
-The original binaries were installed from Arch Linux using:
+This project is not the original MPC-Qt source code.
 
-yay -S mpc-qt
+The MPC-Qt application files are obtained from a Linux installation and packaged into an AppImage format.
 
-or
+The purpose of this repository is to maintain:
 
-paru -S mpc-qt
-
-The actual MPC-Qt binaries and required libraries are obtained from a locally built installation and are not included in this repository.
-
-The purpose of this repository is to track changes to the AppDir structure, launcher, icons, configuration files, and packaging layout.
-
+AppDir structure
+AppRun launcher
+desktop entry
+icons
+packaging scripts
+build automation
 Runtime Requirements
 
-This AppImage is intentionally debloated and is approximately 3 MB in size.
+This AppImage is intentionally lightweight.
 
-Instead of bundling large multimedia libraries, it uses the libraries already installed on the host system.
+Multimedia libraries are not bundled inside the AppImage. Instead, it uses the libraries already installed on the Linux system.
 
-The following packages are required:
+Required packages:
 
-for Debian / Ubuntu / Linux Mint / Pop!_OS
+Debian / Ubuntu / Linux Mint / Pop!_OS
 sudo apt install mpv ffmpeg
-
-for Arch Linux / EndeavourOS / Manjaro / CachyOS
+Arch Linux / EndeavourOS / Manjaro / CachyOS
 sudo pacman -S mpv ffmpeg
-
-for Fedora nobara
+Fedora / Nobara
 sudo dnf install mpv ffmpeg
-
-for openSUSE
+openSUSE
 sudo zypper install mpv ffmpeg
-
-for Alpine Linux
+Alpine Linux
 sudo apk add mpv ffmpeg
-
-for Void Linux
+Void Linux
 sudo xbps-install -S mpv ffmpeg
-
-for NixOS
+NixOS
 nix-env -iA nixpkgs.mpv nixpkgs.ffmpeg
+Hardware Video Acceleration
 
-A working GPU driver with VA-API and/or VDPAU support is required for hardware video acceleration.
+For GPU hardware decoding, a working graphics driver with VA-API and/or VDPAU support is required.
 
-Make sure your system has the appropriate video drivers installed for your GPU:
+Supported acceleration depends on the installed GPU drivers:
 
-Intel / AMD: VA-API support
-NVIDIA: VDPAU support or compatible VA-API translation layer
+Intel GPU → VA-API / Intel Media Driver
+AMD GPU → VA-API Mesa drivers
+NVIDIA GPU → VDPAU or compatible VA-API translation layer
 
-This AppImage is designed for Linux distributions where multimedia libraries are already available in the system.
+Verify VA-API:
+
+vainfo
+
+Monitor Intel GPU acceleration:
+
+sudo intel_gpu_top
 Building
 
-After preparing a complete Mpc-qt.AppDir, the AppImage is created with:
+The repository includes an automated build script.
 
-ARCH=x86_64 ./appimagetool.AppImage ./Mpc-qt.AppDir MPC-Qt-VAAPI-x86_64.AppImage
-License
+The script downloads the required files, prepares the AppDir and generates the AppImage automatically.
 
-Packaging files and custom scripts are provided as-is.
+Manual build:
 
-MPC-Qt and its dependencies remain under their respective licenses.
-
+ARCH=x86_64 ./appimagetool-x86_64.AppImage ./Mpc-qt.AppDir MPC-Qt-VAAPI-x86_64.AppImage
 Design Goal
 
-This AppImage was created with a focus on low disk space consumption.
+This AppImage was created with a focus on portability and reduced size.
 
-Instead of including duplicated multimedia libraries inside the package, it uses the existing system libraries already installed on the host.
+Instead of duplicating large multimedia libraries inside the package, it relies on the optimized FFmpeg/mpv libraries already available in the host system.
 
-This keeps the AppImage extremely small (approximately 3 MB) while still providing MPC-Qt with VA-API hardware video acceleration when the required system components are available.
+This keeps the AppImage lightweight while maintaining compatibility with Linux distributions and allowing hardware video acceleration through VA-API when supported.
+
+License
+
+Packaging files, scripts and configuration files are provided as-is.
+
+MPC-Qt and its dependencies remain under their respective licenses.
