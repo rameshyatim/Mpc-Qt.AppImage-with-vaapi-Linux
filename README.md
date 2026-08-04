@@ -46,22 +46,29 @@ Multimedia libraries are not bundled inside the AppImage. Instead, it uses the l
 
 Required packages:
 
-Debian / Ubuntu / Linux Mint / Pop!_OS
-sudo apt install mpv ffmpeg
-Arch Linux / EndeavourOS / Manjaro / CachyOS
-sudo pacman -S mpv ffmpeg
-Fedora / Nobara
-sudo dnf install mpv ffmpeg
-openSUSE
-sudo zypper install mpv ffmpeg
-Alpine Linux
-sudo apk add mpv ffmpeg
-Void Linux
-sudo xbps-install -S mpv ffmpeg
-NixOS
-nix-env -iA nixpkgs.mpv nixpkgs.ffmpeg
-Hardware Video Acceleration
+Debian / Ubuntu / Linux Mint / Pop!_OS   
+    sudo apt install mpv ffmpeg  
+        
+Arch Linux / EndeavourOS / Manjaro / CachyOS       
+    sudo pacman -S mpv ffmpeg    
 
+Fedora / Nobara    
+    sudo dnf install mpv ffmpeg    
+
+openSUSE    
+    sudo zypper install mpv ffmpeg        
+
+Alpine Linux    
+    sudo apk add mpv ffmpeg    
+    
+Void Linux    
+    sudo xbps-install -S mpv ffmpeg
+
+NixOS    
+    nix-env -iA nixpkgs.mpv nixpkgs.ffmpeg
+
+
+Hardware Video Acceleration
 For GPU hardware decoding, a working graphics driver with VA-API and/or VDPAU support is required.
 
 Supported acceleration depends on the installed GPU drivers:
