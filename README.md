@@ -1,5 +1,5 @@
 <p align="center">
-<img src="images/logo.svg" width="180">
+<img src="images/logo.svg" width="300">
 </p>
 
 # MPC-Qt AppImage with VA-API (Linux)
